@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MiPrimerComponente from './components/MiPrimerComponente';
-import { RecibirProps } from './components/RecibirProps';
-import { useState } from 'react';
+
+import Login from './components/Login';
+import { Route, Routes } from 'react-router';
+import { Dashboard } from './components/Dashboard';
 
 function App() {
 
-  const [result, setResult] = useState("");
-
-  const handleResult = (newResult)=>{
-    setResult(newResult);
-  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <MiPrimerComponente handleResult={handleResult}/>
-        <RecibirProps result={result}/>
+        
+       <Routes>
+         <Route path="/" element={<Login/>}></Route>
+         <Route path="/dashboard" element={<Dashboard autorizado={false}/>}></Route> 
+       </Routes>
       </header>
     </div>
   );
