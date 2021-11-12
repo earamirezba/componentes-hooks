@@ -1,21 +1,17 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import Login from './components/Login';
-import { Route, Routes } from 'react-router';
-import { Dashboard } from './components/Dashboard';
+import { useContext } from 'react';
+import AuthContext from './components/context/AuthContext';
+import AuthRouter from './routers/AuthRouter';
+import UnauthRouter from './routers/UnauthRouter';
 
 function App() {
 
+  const {auth} = useContext(AuthContext);
+
   return (
     <div className="App">
-      <header className="App-header">
-        
-       <Routes>
-         <Route path="/" element={<Login/>}></Route>
-         <Route path="/dashboard" element={<Dashboard autorizado={false}/>}></Route> 
-       </Routes>
-      </header>
+      {auth ? <AuthRouter/> : <UnauthRouter/>}    
     </div>
   );
 }
