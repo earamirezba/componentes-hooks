@@ -1,14 +1,14 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { useEffect, useState } from 'react';
-//import { RecibirProps } from './RecibirProps';
+import { RecibirProps } from './RecibirProps';
 
-export default function MiPrimerComponente({handleResult}) {
+export default function MiPrimerComponente() {
 
     const [num1, setNum1] = useState("");
     const [num2, setNum2] = useState("");
 
-    //const [result, setResult] = useState("");
+    const [result, setResult] = useState("");
 
     useEffect(() => {
         console.log("Actualizando el segundo input");
@@ -21,8 +21,7 @@ export default function MiPrimerComponente({handleResult}) {
         e.preventDefault();
 
         if (!(num1 === "") || !(num2 === "")){
-            //setResult(parseInt(num1) + parseInt(num2));
-            handleResult(parseInt(num1) + parseInt(num2));
+            setResult(parseInt(num1) + parseInt(num2));
         }else{
             console.log("Faltan Campos");
         }
@@ -40,15 +39,12 @@ export default function MiPrimerComponente({handleResult}) {
         <Form.Group className="mb-3" controlId="formNum2">
           <Form.Control value={num2} type="number" onChange={handleNum2} placeholder="Enter second number" />
         </Form.Group>
-        {/*}
-        {!(result === "")?(<RecibirProps result={result}/>):(<></>)}
-        <br/>
-        {*/}
+                     
         <Button variant="primary" type="submit">
           Sumar
         </Button>
       </Form>
-      
+      {!(result === "")?(<RecibirProps result={result}/>):(<></>)}
     </>
   );
 }

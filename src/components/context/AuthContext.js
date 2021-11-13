@@ -5,8 +5,13 @@ const AuthContext = createContext();
 const AuthProvider = ({children}) =>{
     const [auth, setAuth] = useState(false);
 
-const handleAuth = () =>{
+const handleAuth = (user, pass) =>{
         console.log("llamando handleAuth del context...");
+        if(user === "admin" && pass === "123456"){
+            setAuth(true);
+            console.log(true);
+        }
+ 
     }
 
     const data = {auth, handleAuth};

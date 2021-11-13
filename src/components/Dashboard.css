@@ -1,0 +1,7 @@
+.letra{
+    color:green;
+}
+
+.letra:hover{
+    color: red;
+}

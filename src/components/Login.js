@@ -21,7 +21,7 @@ const Login = () => {
     }
 
     const handleLogin = () =>{
-        handleAuth();
+        handleAuth(user, pass);
 
     }
 
